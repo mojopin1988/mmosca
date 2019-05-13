@@ -17,13 +17,17 @@ $text = trim($text);
 $text = strtolower($text);
 header("Content-Type: application/json");
 $response = '';
-if(strpos($text, "/start") === 0 || $text=="ciao")
+if(strpos($text, "/start") === 0 || $text=="benvenuto Maurizio")
 {
 	$response = "$firstname, guarda che roba!";
 }
 elseif($text=="puttane")
 {
 	$response = "ma chi non è mai andato a puttane!?";
+}
+elseif($text=="ciao")
+{
+	$response = "$firstname, guarda che roba!";
 }
 elseif($text=="soldi")
 {
