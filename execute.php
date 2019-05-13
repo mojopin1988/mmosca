@@ -29,11 +29,11 @@ $response = '';
 
 if(strpos($text, "/start") === 0 || $text=="benvenuto Maurizio")
 {
-	$response = "Ciao $firstname, guarda che roba! ";
+	$response = "Ciao $firstname, guarda che roba!";
 }	
 elseif($text=="ciao Maurizio")
 {
-	$response = "sei un villano!";
+	$response = "sei un villano";
 }
 else
 {
