@@ -1,12 +1,10 @@
 <?php
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
-
 if(!$update)
 {
   exit;
 }
-
 $message = isset($update['message']) ? $update['message'] : "";
 $messageId = isset($message['message_id']) ? $message['message_id'] : "";
 $chatId = isset($message['chat']['id']) ? $message['chat']['id'] : "";
@@ -15,37 +13,38 @@ $lastname = isset($message['chat']['last_name']) ? $message['chat']['last_name']
 $username = isset($message['chat']['username']) ? $message['chat']['username'] : "";
 $date = isset($message['date']) ? $message['date'] : "";
 $text = isset($message['text']) ? $message['text'] : "";
-$voice = isset($update['voice']) ? $update['voice'] : "";
-
-$responses = array();
-$responses['lega'] = array();
-$responses['lega'][] = 'Giuro che non sono leghista!';
-
 $text = trim($text);
 $text = strtolower($text);
 header("Content-Type: application/json");
-
 $response = '';
-
-if(strpos($text, "/start") === 0 || $text=="benvenuto Maurizio")
+if(strpos($text, "/start") === 0 || $text=="ciao")
 {
-	$response = "Ciao $firstname, guarda che roba!";
-}	
-elseif($text=="ciao Maurizio")
+	$response = "$firstname, guarda che roba!";
+}
+elseif($text=="puttane")
 {
-	$response = "sei un villano";
+	$response = "ma chi non è mai andato a puttane";
+}
+elseif($text=="soldi")
+{
+	$response = "i soldi che avete voi!";
+}
+elseif($text=="lega")
+{
+	$response = "Giuro che non sono leghista!";
+}
+elseif($text=="leghista")
+{
+	$response = "Giuro che non sono leghista!";
+}
+elseif($text=="salvini")
+{
+	$response = "Giuro che non sono leghista!";
 }
 else
 {
-	foreach($responses as $key => $value){
-		if(strpos(strtolower($text), $key)){
-			$response = $responses[$key][rand(0, sizeof($responses[$key]) - 1)];
-			break;
-		}
-	}
+	$response = "ti mando la finanza";
 }
-
-
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
