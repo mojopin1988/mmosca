@@ -23,7 +23,7 @@ if(strpos($text, "/start") === 0 || $text=="ciao")
 }
 elseif($text=="puttane")
 {
-	$response = "ma chi non è mai andato a puttane";
+	$response = "ma chi non è mai andato a puttane!?";
 }
 elseif($text=="soldi")
 {
