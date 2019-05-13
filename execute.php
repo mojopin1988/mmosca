@@ -47,6 +47,13 @@ elseif($text=="salvini")
 }
 else
 {
+	foreach($responses as $key => $value){
+		if(strpos(strtolower($text), $key)){
+			$response = $responses[$key][rand(0, sizeof($responses[$key]) - 1)];
+			break;
+		}
+	}
+}
 
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
