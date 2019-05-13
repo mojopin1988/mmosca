@@ -20,7 +20,6 @@ $voice = isset($update['voice']) ? $update['voice'] : "";
 $responses = array();
 $responses['lega'] = array();
 $responses['lega'][] = 'Giuro che non sono leghista!';
-$responses['lega'][] = '...tanto meno di merda';
 
 {
 	foreach($responses as $key => $value){
