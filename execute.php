@@ -21,3 +21,17 @@ $responses = array();
 $responses['lega'] = array();
 $responses['lega'][] = 'Giuro che non sono leghista!';
 $responses['lega'][] = '...tanto meno di merda';
+
+{
+	foreach($responses as $key => $value){
+		if(strpos(strtolower($text), $key)){
+			$response = $responses[$key][rand(0, sizeof($responses[$key]) - 1)];
+			break;
+		}
+	}
+}
+
+
+$parameters = array('chat_id' => $chatId, "text" => $response);
+$parameters["method"] = "sendMessage";
+echo json_encode($parameters);
