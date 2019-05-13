@@ -21,6 +21,21 @@ $responses = array();
 $responses['lega'] = array();
 $responses['lega'][] = 'Giuro che non sono leghista!';
 
+$text = trim($text);
+$text = strtolower($text);
+header("Content-Type: application/json");
+
+$response = '';
+
+if(strpos($text, "/start") === 0 || $text=="benvenuto Maurizio")
+{
+	$response = "Ciao $firstname, guarda che roba! ";
+}	
+elseif($text=="ciao Maurizio")
+{
+	$response = "sei un villano!";
+}
+else
 {
 	foreach($responses as $key => $value){
 		if(strpos(strtolower($text), $key)){
