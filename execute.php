@@ -47,8 +47,7 @@ elseif($text=="salvini")
 }
 else
 {
-	$response = "ti mando la finanza";
-}
+
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
