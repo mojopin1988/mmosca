@@ -43,7 +43,7 @@ elseif($text=="ciao maurizio")
 }
 elseif($text=="ciao")
 {
-	$response = "$firstname, guarda che roba!";
+	$response = "$firstname guarda che roba!";
 }
 elseif($text=="soldi")
 {
